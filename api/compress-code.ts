@@ -41,6 +41,7 @@ export async function POST(req: Request): Promise<Response> {
     });
   } catch (err) {
     console.error("compress-code error:", err);
-    return new Response("Internal Server Error", { status: 500 });
-  }
-}
+return new Response(JSON.stringify({ error: String(err) }), {
+  status: 500,
+  headers: { "Content-Type": "application/json" }
+});
