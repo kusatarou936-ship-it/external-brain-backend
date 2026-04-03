@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { analyzeProject } from "../../../lib/analyzer";
 import { extractImportantParts } from "../../../lib/extractor";
 import { buildChunks } from "../../../lib/chunker";
