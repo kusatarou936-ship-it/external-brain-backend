@@ -14,9 +14,11 @@ export function buildChunks(
 ): ChunkItem[] {
   const chunks: ChunkItem[] = [];
 
+  // 全体像チャンク
   const structureText = buildStructureText(project, structure);
   chunks.push({ label: "全体像 (1/1)", content: structureText });
 
+  // 重要抜粋チャンク
   for (const ex of excerpts) {
     const text = buildExcerptText(ex);
     const split = splitIntoChunks(text, maxChars);
