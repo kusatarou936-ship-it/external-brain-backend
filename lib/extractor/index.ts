@@ -1,22 +1,17 @@
-import { StructureItem } from "../types/StructureItem";
-import { ExcerptItem } from "../types/ExcerptItem";
-import { scoreImportance } from "./scoreImportance";
-import { extractExcerpts } from "./extractExcerpts";
-import { generateReasons } from "./generateReasons";
 import { FileInput } from "../types/FileInput";
 
-export function extractImportantParts(
-  structure: StructureItem[],
-  files: FileInput[]
-): ExcerptItem[] {
-  return structure
-    .filter((s) => s.importance >= 2)
-    .map((s) => ({
-      label: `${s.path}（重要抜粋）`,
-      reason: generateReasons(s.path, s.importance),
-      content: extractExcerpts(
-        files.find((f) => f.path === s.path)!,
-        s.importance
-      )
-    }));
+export function extractExcerpts(
+  file: FileInput,
+  importance: number
+): string {
+  if (importance === 3) {
+    return file.content; // 全文
+  }
+
+  if (importance === 2) {
+    const lines = file.content.split("\n");
+    return lines.slice(0, 80).join("\n"); // 80行抜粋
+  }
+
+  return ""; // importance 1 は抜粋なし
 }
