@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "test": "vitest"
+    "build": "tsc",
+    "start": "node api/compress-code.js"
   },
   "dependencies": {},
   "devDependencies": {
