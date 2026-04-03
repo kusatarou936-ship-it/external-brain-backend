@@ -1,8 +1,8 @@
-import { analyzeProject } from "../../../../lib/analyzer";
-import { extractImportantParts } from "../../../../lib/extractor";
-import { buildChunks } from "../../../../lib/chunker";
-import { ProjectSummary } from "../../../../lib/types/ProjectSummary";
-import { FileInput } from "../../../../lib/types/FileInput";
+import { analyzeProject } from "../lib/analyzer";
+import { extractImportantParts } from "../lib/extractor";
+import { buildChunks } from "../lib/chunker";
+import { ProjectSummary } from "../lib/types/ProjectSummary";
+import { FileInput } from "../lib/types/FileInput";
 
 export const runtime = "nodejs";
 
