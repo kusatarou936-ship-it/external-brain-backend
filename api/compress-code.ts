@@ -39,9 +39,16 @@ export async function POST(req: Request): Promise<Response> {
       excerpts,
       chunks
     });
+
   } catch (err) {
     console.error("compress-code error:", err);
-return new Response(JSON.stringify({ error: String(err) }), {
-  status: 500,
-  headers: { "Content-Type": "application/json" }
-});
+
+    return new Response(
+      JSON.stringify({ error: String(err) }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+  }
+}
